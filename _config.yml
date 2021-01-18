@@ -9,7 +9,7 @@ description: ''
 keywords: 
 author: thekingofthemountain
 language: zh-TW
-timezone: 'Asiz/Taipei'
+timezone: 'Asia/Taipei'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
