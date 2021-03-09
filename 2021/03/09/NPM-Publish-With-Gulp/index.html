@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>NPM-Publish-With-Gulp | 帕斯昂&#39;s 技術分享 | 技術分享</title>
+
+  
+  <meta name="author" content="帕斯昂">
+  
+
+  
+  <meta name="description" content="技術手札">
+  
+
+  
+  <meta name="keywords" content="Passon">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="NPM-Publish-With-Gulp"/>
+
+  <meta property="og:site_name" content="帕斯昂&#39;s 技術分享"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="帕斯昂&#39;s 技術分享" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">帕斯昂&#39;s 技術分享</a>
+    </h1>
+    <p class="site-description">技術分享</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>NPM-Publish-With-Gulp</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/03/09/NPM-Publish-With-Gulp/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-03-09T12:25:58.000Z">
+          2021-03-09
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="NPM-Publish"><a href="#NPM-Publish" class="headerlink" title="NPM Publish"></a>NPM Publish</h1><h2 id="Initial-Project"><a href="#Initial-Project" class="headerlink" title="Initial Project"></a>Initial Project</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir publishDemo</span><br><span class="line">$ yarn init</span><br><span class="line">&#x2F;&#x2F; question name (publishDemo):</span><br><span class="line">&#x2F;&#x2F; question version (1.0.0):</span><br><span class="line">&#x2F;&#x2F; question description: publishdemo</span><br><span class="line">&#x2F;&#x2F; question entry point (index.js):</span><br><span class="line">&#x2F;&#x2F; question repository url:</span><br><span class="line">&#x2F;&#x2F; question author: Tomas</span><br><span class="line">&#x2F;&#x2F; question license (MIT):</span><br><span class="line">&#x2F;&#x2F; success Saved package.json</span><br></pre></td></tr></table></figure>
+<p>初始化結束後會增加一個 package.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;publishDemo&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;publishdemo&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Tomas&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;MIT&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Create-index-js"><a href="#Create-index-js" class="headerlink" title="Create index.js"></a>Create index.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="string">&#x27;hello world&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm login</span><br><span class="line">&#x2F;&#x2F; 登入 NPM 的帳號並且驗證信箱</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm publish</span><br><span class="line">+ publishdemotest@1.0.0</span><br></pre></td></tr></table></figure>
+<p><img src="../../../../images/npmpublish/01.png" alt="npm publish success"></p>
+<h2 id="add-Gulp"><a href="#add-Gulp" class="headerlink" title="add Gulp"></a>add Gulp</h2><p>gulpfile.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir src &amp;&amp; mv index.js .&#x2F;src</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">&quot;gulp&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> babel = <span class="built_in">require</span>(<span class="string">&quot;gulp-babel&quot;</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">&quot;compile&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> gulp</span><br><span class="line">    .src(<span class="string">&quot;./src/**/*.js&quot;</span>)</span><br><span class="line">    .pipe(</span><br><span class="line">      babel(&#123;</span><br><span class="line">        presets: [<span class="string">&quot;es2015&quot;</span>, <span class="string">&quot;stage-2&quot;</span>],</span><br><span class="line">        plugins: []</span><br><span class="line">      &#125;)</span><br><span class="line">    )</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&quot;./build&quot;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">&quot;default&quot;</span>, [<span class="string">&quot;compile&quot;</span>]);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ gulp</span><br><span class="line">&#x2F;&#x2F; result</span><br><span class="line">.</span><br><span class="line">├── build</span><br><span class="line">│   └── index.js</span><br><span class="line">├── gulpfile.js</span><br><span class="line">├── package.json</span><br><span class="line">├── src</span><br><span class="line">│   └── index.js</span><br><span class="line">└── yarn.lock</span><br></pre></td></tr></table></figure>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>.gitignore</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># Logs</span><br><span class="line">logs</span><br><span class="line">*.log</span><br><span class="line">npm-debug.log*</span><br><span class="line"></span><br><span class="line"># Runtime data</span><br><span class="line">pids</span><br><span class="line">*.pid</span><br><span class="line">*.seed</span><br><span class="line"></span><br><span class="line"># Directory for instrumented libs generated by jscoverage&#x2F;JSCover</span><br><span class="line">lib-cov</span><br><span class="line"></span><br><span class="line"># Coverage directory used by tools like istanbul</span><br><span class="line">coverage</span><br><span class="line"></span><br><span class="line"># Grunt intermediate storage (http:&#x2F;&#x2F;gruntjs.com&#x2F;creating-plugins#storing-task-files)</span><br><span class="line">.grunt</span><br><span class="line"></span><br><span class="line"># node-waf configuration</span><br><span class="line">.lock-wscript</span><br><span class="line"></span><br><span class="line"># Compiled binary addons (http:&#x2F;&#x2F;nodejs.org&#x2F;api&#x2F;addons.html)</span><br><span class="line">build&#x2F;Release</span><br><span class="line"></span><br><span class="line"># Dependency directory</span><br><span class="line"># https:&#x2F;&#x2F;docs.npmjs.com&#x2F;misc&#x2F;faq#should-i-check-my-node-modules-folder-into-git</span><br><span class="line">node_modules</span><br><span class="line">build</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://github.com/horsekitlin/npmpublishwithgulp">publishdemo</a></p>
+<h3 id="update-NPM-version-and-main"><a href="#update-NPM-version-and-main" class="headerlink" title="update NPM version and main"></a>update NPM version and main</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;publishdemotest&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.1&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;publishdemo&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;./build/index.js&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;Tomas&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;MIT&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;devDependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;babel-core&quot;</span>: <span class="string">&quot;^6.26.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;babel-plugin-transform-runtime&quot;</span>: <span class="string">&quot;^6.23.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;babel-preset-es2015&quot;</span>: <span class="string">&quot;^6.24.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;babel-preset-stage-0&quot;</span>: <span class="string">&quot;^6.24.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp&quot;</span>: <span class="string">&quot;^3.9.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gulp-babel&quot;</span>: <span class="string">&quot;^7.0.0&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="重新-publish"><a href="#重新-publish" class="headerlink" title="重新 publish"></a>重新 publish</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm publish</span><br><span class="line">&#x2F;&#x2F;+ publishdemotest@1.0.1</span><br></pre></td></tr></table></figure>
+<p>這時如果我在其他專案從 NPM 下載結果如下圖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn add publishdemotest</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  $ tree .&#x2F;node_modules&#x2F;publishdemotest</span><br><span class="line">  &#x2F;&#x2F;result</span><br><span class="line"></span><br><span class="line">.&#x2F;node_modules&#x2F;publishdemotest</span><br><span class="line">├── gulpfile.js</span><br><span class="line">├── package.json</span><br><span class="line">├── src</span><br><span class="line">│   └── index.js</span><br><span class="line">└── yarn.lock</span><br></pre></td></tr></table></figure>
+<p>並沒有build 這個 folder</p>
+<p>但是因為在 package.json 中我們將進入點設定為 <code>./build/index.js</code></p>
+<p>所以會造成我們引入時的錯誤</p>
+<p>NPM 會自動將 .gitignore 設定為預設的設定檔案</p>
+<p>但是我們希望可以有其他的設定</p>
+<p>我們可以增加一個 .npmignore</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Logs</span><br><span class="line">logs</span><br><span class="line">*.log</span><br><span class="line">npm-debug.log*</span><br><span class="line">node_modules</span><br><span class="line"></span><br><span class="line">*error*</span><br></pre></td></tr></table></figure>
+<p>我們將build 移除在 .npmignore 中</p>
+<p>再將 package.json 的version 升級</p>
+<p>再重新publish 一次</p>
+<p>在 Demo 的 project 升級 package</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn upgrade publishdemotest</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ tree node_modules&#x2F;publishdemotest</span><br><span class="line"></span><br><span class="line">node_modules&#x2F;publishdemotest</span><br><span class="line">├── build</span><br><span class="line">│   └── index.js</span><br><span class="line">├── gulpfile.js</span><br><span class="line">├── package.json</span><br><span class="line">├── src</span><br><span class="line">│   └── index.js</span><br><span class="line">└── yarn.lock</span><br></pre></td></tr></table></figure>
+<p>透過 .npmignore 就可以達到我們需要的效果</p>
+<p>同樣如果不希望使用者還需要安裝相關套件</p>
+<p>也可以把 node_modules 移除 .npmignore 中</p>
+<p>如此使用者就不需要安裝相關套件</p>
+<p>也可以達到鎖定版本的效果</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Nodejs/">Nodejs</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Javascript/">Javascript</a><a href="/tags/Nodejs/">Nodejs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2021 帕斯昂
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>
