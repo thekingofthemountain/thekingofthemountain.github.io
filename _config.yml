@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 山大王
-subtitle: ''
-description: ''
-keywords: 
-author: thekingofthemountain
-language: zh-TW
-timezone: 'Asia/Taipei'
+title: 帕斯昂's 技術分享
+subtitle: '技術分享'
+description: '技術手札'
+keywords: Passon
+author: 帕斯昂
+language: zh-tw
+timezone: Asia/Taipei
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
@@ -100,7 +100,12 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: landscape
 
+
 # Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
+## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/thekingofthemountain/thekingofthemountain.github.io
+  branch: master
+  name: thekingofthemountain
+  email: thekingofthemountain1@gmail.com
